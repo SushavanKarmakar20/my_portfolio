@@ -66,7 +66,7 @@
             <div class="container">
                 <div class="d-grid hero__wrapper">
                     <div class="hero__content">
-                        <h1 class="hero__title">Hi, I am Sushavan,<br> Software Engineer.</h1>
+                        <h1 class="hero__title">Hi, I am Sushavan,<br><span id="role"></span><span id="cursor">|</span></h1>
                         <p class="hero__description">From cloud architecture to AI experiments to full-stack web builds—I love crafting solutions that make an impact..</p>
                         <div class="hero__info">
                             <div class="hero__info-wrapper">
@@ -208,7 +208,7 @@
                 </div>
                 <div class="qualification__footer">
                     <p class="qualification__footer-text">See my full resume  ➯</p>
-                    <a href="./loader.html" class="btn btn--primary">Resume</a>
+                    <a href="https://drive.google.com/file/d/1grOaF2kODawlZqBN-yhwOFotfiMYW_9h/view?usp=sharing" class="btn btn--primary" target="_blank">Resume</a>
                 </div>
             </div>
         </section>
@@ -257,30 +257,27 @@
                 <div class="d-grid project__wrapper">
                     <!--= project 1 =-->
                     <div class="project__content">
-                        <img src="assets/img/project1.jpg" alt="Agency Website" class="project__img">
-                        <h3 class="project__title">Agency Website</h3>
-                        <p class="project__description"> It provides a convenient way for potential clients to view your
-                            work while also allowing you to expand on your skills and services.</p>
-                        <a href="./loader.html" class="project__link">Live Demo<i class="ri-arrow-right-line"></i></a><br>
-                        <a href="./loader.html" class="project__link">Source Code<i class="ri-arrow-right-line"></i></a>
+                        <img src="./assets/img/attandance.png" alt="Smart Attendance System" class="project__img">
+                        <h3 class="project__title">Face Recognition Based Smart Attendance System</h3>
+                        <p class="project__description"> A Python-based GUI attendance system using real-time face recognition to detect and mark multiple faces simultaneously with high accuracy..</p>
+                        <a href="./loader.html" class="project__link" target="_blank">Live Demo<i class="ri-arrow-right-line"></i></a><br>
+                        <a href="https://github.com/SushavanKarmakar20/Face-Recognition-Based-Attendance-System" class="project__link" target="_blank">Source Code<i class="ri-arrow-right-line"></i></a>
                     </div>
                     <!--= project 2 =-->
                     <div class="project__content">
-                        <img src="assets/img/project2.jpg" alt="Crypto Application " class="project__img">
-                        <h3 class="project__title">Crypto Application</h3>
-                        <p class="project__description"> It provides a convenient way for potential clients to view your
-                            work while also allowing you to expand on your skills and services.</p>
-                        <a href="./loader.html" class="project__link">Live Demo<i class="ri-arrow-right-line"></i></a><br>
-                        <a href="./loader.html" class="project__link">Source Code<i class="ri-arrow-right-line"></i></a>
+                        <img src="./assets/img/onboarding.png" alt="Onboarding App " class="project__img">
+                        <h3 class="project__title">Application Onboarding App</h3>
+                        <p class="project__description"> A Flask-based web app to onboard new applications and generate PDF summaries of selected Azure resources, with an intuitive UI for seamless resource selection and configuration..</p>
+                        <a href="https://application-onboarding.onrender.com/" class="project__link" target="_blank">Live Demo<i class="ri-arrow-right-line"></i></a><br>
+                        <a href="https://github.com/SushavanKarmakar20/Application_Onboarding" class="project__link" target="_blank">Source Code<i class="ri-arrow-right-line"></i></a>
                     </div>
                     <!--= project 3 =-->
                     <div class="project__content">
-                        <img src="assets/img/project3.jpg" alt="Ecommerce Website" class="project__img">
-                        <h3 class="project__title">Ecommerce Website</h3>
-                        <p class="project__description"> It provides a convenient way for potential clients to view your
-                            work while also allowing you to expand on your skills and services.</p>
-                        <a href="./loader.html" class="project__link">Live Demo<i class="ri-arrow-right-line"></i></a><br>
-                        <a href="./loader.html" class="project__link">Source Code<i class="ri-arrow-right-line"></i></a>
+                        <img src="./assets/img/recipe.png" alt="Ecommerce Website" class="project__img">
+                        <h3 class="project__title">Agent Based Ecom App</h3>
+                        <p class="project__description"> A Flask web app with user authentication that generates personalized AI-powered cooking recipes and creates a dynamic shopping bucket for ordering ingredients.</p>
+                        <a href="https://recipe-finder-39tj.onrender.com/" class="project__link" target="_blank">Live Demo<i class="ri-arrow-right-line"></i></a><br>
+                        <a href="https://github.com/SushavanKarmakar20/Recipe-Finder" class="project__link" target="_blank">Source Code<i class="ri-arrow-right-line"></i></a>
                     </div>
                 </div>
             </div>
@@ -333,5 +330,39 @@
     <!--====== Main JS =======-->
     <script src="assets/js/main.js"></script>
 </body>
+<script>
+  const roles = ["Software Developer", "DevOps Engineer", "AI Practitioner"];
+  const roleElement = document.getElementById("role");
+  let roleIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+
+  function typeEffect() {
+    const currentRole = roles[roleIndex];
+    
+    if (isDeleting) {
+      charIndex--;
+      roleElement.textContent = currentRole.substring(0, charIndex);
+    } else {
+      charIndex++;
+      roleElement.textContent = currentRole.substring(0, charIndex);
+    }
+
+    let typingSpeed = isDeleting ? 50 : 100;
+
+    if (!isDeleting && charIndex === currentRole.length) {
+      typingSpeed = 1500; // Pause before deleting
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+      typingSpeed = 500;
+    }
+
+    setTimeout(typeEffect, typingSpeed);
+  }
+
+  typeEffect();
+</script>
 
 </html>
