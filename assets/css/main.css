@@ -292,6 +292,25 @@ body {
   position: relative;
 }
 
+#role {
+  color:#24493a;
+  font-size: 45px;
+  margin-bottom: 5rem;
+  position: relative;
+  transition: opacity 0.5s ease-in-out;
+}
+
+#cursor {
+    display: inline-block;
+    animation: blink 0.7s infinite;
+    color: #000;
+  }
+
+  @keyframes blink {
+    0%, 50%, 100% { opacity: 1; }
+    25%, 75% { opacity: 0; }
+  }
+
 .hero__title::after {
   position: absolute;
   content: "";
@@ -483,7 +502,12 @@ body {
 }
 
 .project__img {
+  max-width: 300px;
+  height: 300px;
   margin-bottom: 2rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
 }
 
 .project__title {
