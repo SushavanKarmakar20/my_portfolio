@@ -294,7 +294,7 @@ body {
 
 #role {
   color:#24493a;
-  font-size: 45px;
+  font-size: ar(--fs-biggest);
   margin-bottom: 5rem;
   position: relative;
   transition: opacity 0.5s ease-in-out;
